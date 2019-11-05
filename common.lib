@@ -1,0 +1,64 @@
+#
+# Funciones comunes
+#
+
+checkprg() {
+  PRG_NAME=$1
+
+  if command -v $PRG_NAME > /dev/null; then
+      return 0
+  else
+      return 1
+  fi
+}
+
+check_deps(){
+
+  DEPS=$1         
+         
+  info "checking dependencies"
+
+  for dep in "${DEPS[@]}"
+  do
+     info  "checking $dep ..."
+     checkprg $dep
+     if [ $? -eq 0 ]; then
+         success "$dep installed"
+     else
+         fail "$dep not found"
+     fi
+  done
+}
+
+msg() {
+  printf "\r$1\n"
+}
+
+info() {
+  msg "  [ \033[00;34m..\033[0m ] $1"
+}
+
+success() {
+  msg "\033[2K  [ \033[00;32mOK\033[0m ] $1"
+}
+
+fail() {
+  msg "\033[2K  [\033[0;31mFAIL\033[0m] $1"
+  echo ''
+  exit
+}
+
+create_link(){
+  SRC=$1
+  DST=$2
+}
+
+usage() {
+   echo "Usage: install.sh [options]"
+   echo ""
+   echo "options:"
+   echo ""
+   echo " -nc | --no-check        No check for dependencies"
+   echo " -h  | --help            Show this message"
+   echo ""
+}
