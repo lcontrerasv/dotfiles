@@ -14,8 +14,8 @@ checkprg() {
 
 check_deps(){
 
-  DEPS=$1         
-         
+  DEPS=$1
+
   info "checking dependencies"
 
   for dep in "${DEPS[@]}"
