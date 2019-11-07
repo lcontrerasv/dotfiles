@@ -42,4 +42,4 @@ do
   fi
 done
 
-success "Finished"
+success "Finished! Please run: source ~/.zshrc"

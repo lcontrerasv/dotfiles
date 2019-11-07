@@ -1,6 +1,23 @@
-"=======================
-" => VIM General 
-"=======================
+"=========================================================================================
+"
+" Mantainer:  lcontrerasv
+"
+" Updated:    07/11/2019
+"
+" Sections:
+"   -> General
+"   -> User interface
+"   -> Colors and Fonts
+"   -> Text, tab and indent relate
+"   -> Keymap
+"   -> Plugins
+"       -> Specific Plugin's configuration
+"
+"=========================================================================================
+"
+"=========================================================================================
+" => General 
+"=========================================================================================
 " Sets how many lines of history VIM has to remember
 set history=700
 
@@ -38,9 +55,14 @@ set binary
 set noeol
 
 " Centralize backups, swapfiles and undo history
+silent !mkdir ~/.vim/backups > /dev/null 2>&1
 set backupdir=~/.vim/backups
+
+silent !mkdir ~/.vim/swaps > /dev/null 2>&1
 set directory=~/.vim/swaps
+
 if exists("&undodir")
+  silent !mkdir ~/.vim/undo > /dev/null 2>&1
   set undodir=~/.vim/undo
 endif
 
@@ -54,9 +76,9 @@ set secure
 " Disable error bells
 set noerrorbells
 
-"=======================
-" => VIM user interface
-"=======================
+"=========================================================================================
+" => User interface
+"=========================================================================================
 " Don’t show the intro message when starting Vim
 set shortmess=atI
 
@@ -115,10 +137,10 @@ set title
 set showcmd
 
 " Use relative line numbers
-if exists("&relativenumber")
-  set relativenumber
-  au BufReadPost * set relativenumber
-endif
+"if exists("&relativenumber")
+"  set relativenumber
+"  au BufReadPost * set relativenumber
+"endif
 
 " Start scrolling three lines before the horizontal window border
 set scrolloff=3
@@ -142,9 +164,9 @@ set mat=2
 " No annoying sound on errors
 set novisualbell
 
-"=======================
+"=========================================================================================
 " => Colors and Fonts
-"=======================
+"=========================================================================================
 " Enable syntax highlighting
 syntax enable
 set background=dark
@@ -170,13 +192,9 @@ else
   set guicursor=
 endif
 
-"=======================
-" => VIM Keymap
-"=======================
-
-"=======================
+"=========================================================================================
 " => Text, tab and indent related
-"=======================
+"=========================================================================================
 " Use spaces instead of tabs
 set expandtab
 
@@ -200,16 +218,27 @@ set si
 "Wrap lines
 set nowrap
 
-"=======================
-" => Plugins
-"=======================
-"if empty(glob('~/.vim/autoload/plug.vim'))
-"  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-"    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-"  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-"endif
+"=========================================================================================
+" => Keymap
+"=========================================================================================
 
-"call plug#begin('~/.vim/bundle')
+let mapleader = ","
+let g:mapleader = ","
+
+
+
+"=========================================================================================
+" => Plugins
+"=========================================================================================
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+silent !mkdir ~/.vim/bundle > /dev/null 2>&1
+
+call plug#begin('~/.vim/bundle')
 
 "Plug 'https://github.com/pangloss/vim-javascript.git'
 
@@ -224,4 +253,14 @@ set nowrap
 "Plug 'SirVer/ultisnips'
 "Plug 'mlaursen/vim-react-snippets'
 
-"call plug#end()
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
+
+call plug#end()
+"=========================================================================================
+" => NERDTree
+"=========================================================================================
+
+map <leader>N :NERDTreeToggle<cr>
+map <leader>F :NERDTreeFind<cr>
+

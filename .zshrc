@@ -29,5 +29,5 @@ source $ZSH/oh-my-zsh.sh
 ## User Configuration
 
 # custom aliases
-
-
+alias c='clear'
+alias gc='git commit -v -m'
