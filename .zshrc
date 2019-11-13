@@ -31,3 +31,4 @@ source $ZSH/oh-my-zsh.sh
 # custom aliases
 alias c='clear'
 alias gc='git commit -v -m'
+alias p='ping'
