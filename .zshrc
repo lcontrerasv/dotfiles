@@ -32,3 +32,6 @@ source $ZSH/oh-my-zsh.sh
 alias c='clear'
 alias gc='git commit -v -m'
 alias p='ping'
+
+# For linux subsystem on windows 10
+alias npm='/usr/bin/npm'

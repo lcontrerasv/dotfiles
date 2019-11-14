@@ -9,6 +9,7 @@ VERSION="1.0"
 DEPS=(git 
   curl 
   yarn
+  node
   barn
 )
 
@@ -62,7 +63,7 @@ check_deps(){
 copy_dots_files(){
   info "Installing dotfiles"
 
-  for dot in $(find -H -E . -maxdepth 1 -iname '.*' -not -regex '\.|.*\.git.*' )
+  for dot in $(find -H . -maxdepth 1 -iname '.*' -not -regex '.*\.git.*' -not -regex '\.')
   do
     if [ -f "${dot}" ]; then
       #info "Installing file $dot"
