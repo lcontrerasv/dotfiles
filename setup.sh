@@ -6,11 +6,13 @@ AUTHOR="lcontrerasv"
 URL=""
 VERSION="1.0"
 
+BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 DEPS=(git 
   curl 
   yarn
   node
-  barn
+#  barn
 )
 
 check_prg() {
@@ -65,18 +67,15 @@ copy_dots_files(){
 
   for dot in $(find -H . -maxdepth 1 -iname '.*' -not -regex '.*\.git.*' -not -regex '\.')
   do
-    if [ -f "${dot}" ]; then
-      #info "Installing file $dot"
-      cp -f $dot ~/
+    # virify if $dot already exists
+    if [ ! -h ~/${dot} ]; then
+      info "Installing $dot"
+      ln -s ${BASEDIR}/${dot} ~/${dot}
       if [ $? -eq 0 ]; then
-        success "file $dot installed"
+        success "$dot installed"
       else
         fail "Error while instaling $dot"
-      fi 
-    elif [ -d "${dot}" ]; then
-      #info "Installing dir $dot"
-      #cp -rf $dot ~/
-      info "Not yet implemented (${dot})"
+      fi
     fi
   done
 
@@ -93,6 +92,9 @@ install_dots(){
 # Update dotfiles
 update_dots(){
   info "Updating dotfiles"
+  #update repo
+  cd ${BASEDIR} && git pull
+  #copy only new files
   copy_dots_files
 }
 

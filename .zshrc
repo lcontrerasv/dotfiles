@@ -1,37 +1,37 @@
-export ZSH=~/.oh-my-zsh
+# External plugins (initialized before)
+source ~/.zsh/plugins_before.zsh
 
-ZSH_THEME="robbyrussell"
+# Settings
+source ~/.zsh/settings.zsh
 
-plugins=(
-  docker
-  dotenv
-  extract
-  git
-  httpie
-  history
-  iterm2
-  last-working-dir
-  mvn
-  node
-  npm
-  osx
-  postgres
-  spring
-  sudo
-  web-search
-  z
-  zsh-autosuggestions
-  zsh-syntax-highlighting
-)
+#export ZSH=~/.oh-my-zsh
 
-source $ZSH/oh-my-zsh.sh
+#ZSH_THEME="robbyrussell"
 
-## User Configuration
+# Internal oh-My-ZSH Plugins
+#plugins=(
+#  docker
+#  dotenv
+#  extract
+#  git
+#  httpie
+#  history
+#  iterm2
+#  last-working-dir
+#  mvn
+#  node
+#  npm
+#  osx
+#  postgres
+#  spring
+#  sudo
+#  web-search
+#  z
+#)
 
-# custom aliases
-alias c='clear'
-alias gc='git commit -v -m'
-alias p='ping'
+#source $ZSH/oh-my-zsh.sh
 
-# For linux subsystem on windows 10
-alias npm='/usr/bin/npm'
+source ~/.shell/aliases.sh
+
+# External plugins (initialized after)
+source ~/.zsh/plugins_after.zsh
