@@ -68,14 +68,18 @@ copy_dots_files(){
   for dot in $(find -H . -maxdepth 1 -iname '.*' -not -regex '.*\.git.*' -not -regex '\.')
   do
     # virify if $dot already exists
-    if [ ! -h ~/${dot} ]; then
-      info "Installing $dot"
-      ln -s ${BASEDIR}/${dot} ~/${dot}
-      if [ $? -eq 0 ]; then
-        success "$dot installed"
-      else
-        fail "Error while instaling $dot"
-      fi
+    if [ -h ~/${dot} ]; then
+      # delete symbolic link
+      rm -f ~/${dot}
+    fi
+
+    # create symbolic link
+    info "Installing $dot"
+    ln -s ${BASEDIR}/${dot} ~/${dot}
+    if [ $? -eq 0 ]; then
+      success "$dot installed"
+    else
+      fail "Error while instaling $dot"
     fi
   done
 
