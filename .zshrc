@@ -1,3 +1,6 @@
+# Path configuration
+export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
+
 # External plugins (initialized before)
 source ~/.zsh/plugins_before.zsh
 
