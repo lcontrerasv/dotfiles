@@ -1,5 +1,10 @@
 # Use colors in coreutils utilities output
-alias ls='ls --color=auto'
+if [[ "$(uname -s)" == "Darwin" ]]; then
+  alias ls='ls -G'
+else
+  alias ls='ls --color=auto'
+fi
+
 alias grep='grep --color'
 
 # ls aliases
@@ -14,14 +19,16 @@ alias rm='rm -i'
 
 # git aliases
 alias gc='git commit -v -m'
-
+alias gla='git pull --recurse-submodules'
 
 # custom user aliases
 alias c='clear'
 alias p='ping'
 
 # for linux subsystem on win10
-alias npm='/usr/bin/npm'
+if ! [[ "$(uname)" == "Darwin" ]]; then
+  alias npm='/usr/bin/npm'
+fi
 
 # function aliases
 

@@ -31,7 +31,10 @@ if [[ "$(tput colors)" == "256" ]]; then
 fi
 
 # dircolors
-
-if [[ "$(tput colors)" == "256" ]]; then
-  eval $(dircolors =(cat ~/.shell/plugins/dircolors-solarized/dircolors.256dark ~/.shell/dircolors.extra))
+if [[ "$(uname -s)" == "Darwin" ]]; then
+  export CLICOLOR=YES
+else
+  if [[ "$(tput colors)" == "256" ]]; then
+    eval $(dircolors =(cat ~/.shell/plugins/dircolors-solarized/dircolors.256dark ~/.shell/dircolors.extra))
+  fi
 fi
