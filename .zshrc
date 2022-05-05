@@ -21,7 +21,7 @@ plugins=(
   mvn
   node
   npm
-  osx
+  macos
   postgres
   spring
   sudo
