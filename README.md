@@ -13,7 +13,7 @@ Install
 
 1.- Clone on your computer:
 
-	git clone https://github.com/lcontrerasv/dotfiles.git
+	git clone --recurse-submodules https://github.com/lcontrerasv/dotfiles.git
 
 2.- Run the setup:
 
