@@ -4,7 +4,7 @@
 
 AUTHOR="lcontrerasv"
 URL=""
-VERSION="1.1"
+VERSION="1.2"
 
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
@@ -49,6 +49,13 @@ check_deps(){
 
   info "checking dependencies"
 
+  #check if oh-my-zsh is installed
+  if [ -d ~/.oh-my-zsh ]; then
+    success "Oh My ZSH! installed"
+  else
+    fail "Oh My ZSH! not found"
+  fi
+
   for dep in "${DEPS[@]}"
   do
      info  "checking $dep ..."
@@ -67,11 +74,18 @@ copy_dots_files(){
 
   for dot in $(find -H . -maxdepth 1 -iname '.*' -not -regex '.*\.git.*' -not -regex '\.')
   do
-    # virify if $dot already exists
+
+    # verify if $dot already exists as symbolic link
     if [ -h ~/${dot} ]; then
       # delete symbolic link
       rm -f ~/${dot}
     fi
+
+    # verify if $dot already exists as file
+    if [ -f ~/${dot} ]; then
+      # rename file as backup
+      mv ~/${dot} ~/${dot}`date +%Y_%m_%d_%H:%M:%S`
+    fi 
 
     # create symbolic link
     info "Installing $dot"
@@ -91,6 +105,7 @@ install_dots(){
   info "Installing dotfiles"
   check_deps ${DEPS}
   copy_dots_files
+  custom_oh_my_zsh
 }
 
 # Update dotfiles
@@ -100,6 +115,12 @@ update_dots(){
   cd ${BASEDIR} && git pull
   #copy only new files
   copy_dots_files
+}
+
+# Custom Oh My ZSH themes and plugins
+custom_oh_my_zsh(){
+  #Install themes
+  cp -rf ${BASEDIR}/themes/oh-my-zsh/* ~/.oh-my-zsh/custom/themes/
 }
 
 # Version of this script

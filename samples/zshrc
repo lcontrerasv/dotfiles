@@ -1,3 +1,7 @@
+#
+# From https://github.com/anishathalye/dotfiles
+#
+
 # Functions
 source ~/.shell/functions.sh
 

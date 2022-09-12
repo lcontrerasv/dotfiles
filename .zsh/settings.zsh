@@ -1,29 +1,3 @@
-# oh-My-ZSH config
-export ZSH=~/.oh-my-zsh
-
-# Internal oh-My-ZSH Plugins
-plugins=(
-   docker
-   dotenv
-   extract
-   git
-   httpie
-   history
-   iterm2
-   last-working-dir
-   mvn
-   node
-   npm
-   macos
-   postgres
-   spring
-   sudo
-   web-search
-   z
-)
-
-source $ZSH/oh-my-zsh.sh
-
 # Initialize completion
 autoload -Uz compinit && compinit -i
 zstyle ':completion:*' menu select=4
