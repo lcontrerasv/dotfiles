@@ -112,9 +112,10 @@ install_dots(){
 update_dots(){
   info "Updating dotfiles"
   #update repo
-  cd ${BASEDIR} && git pull
+  cd ${BASEDIR} && git pull --all
   #copy only new files
   copy_dots_files
+  custom_oh_my_zsh
 }
 
 # Custom Oh My ZSH themes and plugins
