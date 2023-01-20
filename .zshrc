@@ -18,20 +18,20 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Internal oh-My-ZSH Plugins
 plugins=(
-   docker
+   brew
    dotenv
    extract
+   fzf
    git
+   github
    httpie
    history
    iterm2
+   jira
    last-working-dir
-   mvn
    node
    npm
    macos
-   postgres
-   spring
    sudo
    web-search
    z
@@ -57,3 +57,5 @@ source ~/.zsh/plugins_after.zsh
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

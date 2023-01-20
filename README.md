@@ -8,6 +8,15 @@ Set zsh as your login shell:
 
 	chsh -s $(which zsh)
 
+Then, install Oh my ZSH!
+
+And finally, you need:
+
+kitty
+bat
+fzf
+lsd
+
 Install
 ------------
 
