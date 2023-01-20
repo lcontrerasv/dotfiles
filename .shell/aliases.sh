@@ -33,6 +33,7 @@ alias bwi='brew install'
 alias bwic='brew install --cask'
 alias bws='brew search'
 alias bwif='brew info'
+alias bwl='brew list'
 
 # for linux subsystem on win10
 if ! [[ "$(uname)" == "Darwin" ]]; then
