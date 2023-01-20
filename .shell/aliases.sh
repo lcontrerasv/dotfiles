@@ -29,6 +29,10 @@ alias p='ping -c 4'
 alias p1='ping -c 1'
 alias cat='bat'
 alias catnl='bat --paging=never'
+alias bwi='brew install'
+alias bwic='brew install --cask'
+alias bws='brew search'
+alias bwif='brew info'
 
 # for linux subsystem on win10
 if ! [[ "$(uname)" == "Darwin" ]]; then
