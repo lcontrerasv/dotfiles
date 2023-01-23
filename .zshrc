@@ -8,6 +8,9 @@ fi
 # Path configuration
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
 
+# Custom setting
+[[ ! -f ~/.custom.sh ]] || source ~/.custom.sh
+
 # External plugins (initialized before)
 source ~/.zsh/plugins_before.zsh
 
@@ -50,9 +53,6 @@ source ~/.zsh/plugins_after.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# Custom setting
-[[ ! -f ~/.custom.sh ]] || source ~/.custom.sh
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
