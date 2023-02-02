@@ -38,3 +38,8 @@ else
     eval $(dircolors =(cat ~/.shell/plugins/dircolors-solarized/dircolors.256dark ~/.shell/dircolors.extra))
   fi
 fi
+
+#
+# Autosuggestions
+#
+source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
