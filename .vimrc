@@ -2,7 +2,7 @@
 "
 " Mantainer:  lcontrerasv
 "
-" Updated:    07/11/2019
+" Updated:    04/02/2023
 "
 " Sections:
 "   -> General
@@ -240,22 +240,32 @@ silent !mkdir ~/.vim/bundle > /dev/null 2>&1
 
 call plug#begin('~/.vim/bundle')
 
-"Plug 'https://github.com/pangloss/vim-javascript.git'
+Plug 'https://github.com/pangloss/vim-javascript.git'
 
-"Plug 'https://github.com/leafgarland/typescript-vim.git'
+Plug 'https://github.com/leafgarland/typescript-vim.git'
 
-"Plug 'https://github.com/MaxMEllon/vim-jsx-pretty'
+Plug 'https://github.com/MaxMEllon/vim-jsx-pretty'
 
-"Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
-"let g:prettier#autoformat = 0
-"autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
-
-"Plug 'SirVer/ultisnips'
-"Plug 'mlaursen/vim-react-snippets'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdcommenter'
+
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 
+Plug 'junegunn/fzf.vim'
+Plug 'liuchengxu/vista.vim'
+Plug 'jeetsukumaran/vim-pythonsense'
+Plug 'jiangmiao/auto-pairs'
+Plug 'sheerun/vim-polyglot'
+
+Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'dense-analysis/ale'
+
+" Use release branch (recommend)
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 "=========================================================================================
 " => NERDTree
