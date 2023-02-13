@@ -48,6 +48,9 @@ source ~/.zsh/settings.zsh
 # Aliases
 source ~/.shell/aliases.sh
 
+# Custom Aliases
+[[ ! -f ~/.custom_alias.sh ]] || source ~/.custom_alias.sh
+
 # External plugins (initialized after)
 source ~/.zsh/plugins_after.zsh
 

@@ -1,36 +1,40 @@
-lcontrerasv dotfiles
-===========================
+# lcontrerasv dotfiles
 
-Requirements
-------------
+## Requirements
 
-Set zsh as your login shell:
+First, set zsh as your login shell:
 
-	chsh -s $(which zsh)
+    chsh -s $(which zsh)
 
-Then, install Oh my ZSH!
+Then, install Oh my ZSH!:
 
-And finally, you need:
+    https://ohmyz.sh/#install
 
-kitty
-bat
-fzf
-lsd
+And finally, you need to install the next tools:
 
-Install
-------------
+    kitty       (Terminal)          - https://sw.kovidgoyal.net/kitty/
+    bat         (Better cat)        - https://github.com/sharkdp/bat
+    fzf         (Fuzzy finder)      - https://github.com/junegunn/fzf
+    lsd         (Better ls)         - https://github.com/Peltoche/lsd
+
+    Optionally, for macos:
+
+    Rectangle   (Window Manager)    - https://rectangleapp.com/
+
+-   I recommend to install this with a package manager like apt, yum or brew.
+
+## Install
 
 1.- Clone on your computer:
 
-	git clone --recurse-submodules https://github.com/lcontrerasv/dotfiles.git
+    git clone --recurse-submodules https://github.com/lcontrerasv/dotfiles.git
 
 2.- Run the setup:
 
-	.../dotfiles/setup -i
+    .../dotfiles/setup.sh -i
 
-Update
-------------
+## Update
 
 1.- Run the setup for update:
 
-	.../dotfiles/setup -u
+    .../dotfiles/setup.sh -u
