@@ -1,10 +1,9 @@
 #!/bin/bash
 # Script for install dotFiles
 
-
-AUTHOR="lcontrerasv"
-URL=""
-VERSION="1.2"
+AUTHOR="lcontreras"
+URL="https://github.com/lcontrerasv/dotfiles"
+VERSION="1.3"
 
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
@@ -12,7 +11,6 @@ DEPS=(git
   curl 
   yarn
   node
-#  barn
 )
 
 check_prg() {
@@ -84,8 +82,14 @@ copy_dots_files(){
     # verify if $dot already exists as file
     if [ -f ~/${dot} ]; then
       # rename file as backup
-      mv ~/${dot} ~/${dot}`date +%Y_%m_%d_%H:%M:%S`
-    fi 
+      mv ~/${dot} ~/${dot}`date +%Y_%m_%d_%H:%M:%S`.bkp
+    fi
+
+    # verify if $dot already exists as directory
+    if [ -d ~/${dot} ]; then
+      #create backup
+      #pending of implementation  
+    fi
 
     # create symbolic link
     info "Installing $dot"
@@ -95,6 +99,7 @@ copy_dots_files(){
     else
       fail "Error while instaling $dot"
     fi
+
   done
 
   success "Finished! Please run: source ~/.zshrc"

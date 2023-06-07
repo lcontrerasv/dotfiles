@@ -33,9 +33,10 @@ alias bwi='brew install'
 alias bwic='brew install --cask'
 alias bws='brew search'
 alias bwif='brew info'
+alias bwifc='brew info --cask'
 alias bwl='brew list'
 alias ssh='TERM=xterm-256color ssh'
-
+alias vim='nvim'
 
 # for linux subsystem on win10
 if ! [[ "$(uname)" == "Darwin" ]]; then
