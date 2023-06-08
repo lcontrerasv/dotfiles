@@ -88,7 +88,8 @@ copy_dots_files(){
     # verify if $dot already exists as directory
     if [ -d ~/${dot} ]; then
       #create backup
-      #pending of implementation  
+      #pending of implementation
+      ls > /dev/null
     fi
 
     # create symbolic link
