@@ -16,10 +16,8 @@ And finally, you need to install the next tools:
     bat         (Better cat)        - https://github.com/sharkdp/bat
     fzf         (Fuzzy finder)      - https://github.com/junegunn/fzf
     lsd         (Better ls)         - https://github.com/Peltoche/lsd
-
-    Optionally, for macos:
-
-    Rectangle   (Window Manager)    - https://rectangleapp.com/
+    neovim      (Better vim)        - https://neovim.io/
+    nvchad      (Theme for nvim)    - https://nvchad.com/
 
 -   I recommend to install this with a package manager like apt, yum or brew.
 
