@@ -39,8 +39,7 @@ fi
 
 # 1.- Install Oh my ZSH
 info "Installing Oh my ZSH!..."
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-exit #for exit from Oh my ZSH login
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 success "Oh my ZSH Installed"
 
 # 2.- kitty
