@@ -35,6 +35,7 @@ if zsh --version > /dev/null; then
   chsh -s $(which zsh)
 else
   fail "ZSH NOT found!"
+fi
 
 # 1.- Install Oh my ZSH
 info "Installing Oh my ZSH!..."
