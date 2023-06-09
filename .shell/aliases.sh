@@ -27,6 +27,11 @@ alias gla='git pull --recurse-submodules'
 alias c='clear'
 alias p='ping -c 4'
 alias p1='ping -c 1'
+
+if command -v batcat > /dev/null; then
+  alias bat='batcat'
+fi
+
 alias cat='bat'
 alias catnl='bat --paging=never'
 alias bwi='brew install'
