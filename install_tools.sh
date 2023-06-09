@@ -50,7 +50,7 @@ success "Kitty Installed"
 # 3.- bat
 info "Installing BAT..."
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-  sudo apt install -q bat
+  sudo apt install -q -y bat
   success "BAT Installed"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   brew install -q bat
@@ -68,7 +68,7 @@ success "FZF Installed"
 # 5.- lsd
 info "Installing LSD..."
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-  sudo apt install -q lsd
+  sudo apt install -q -y lsd
   success "LSD Installed"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   brew install -q lsd
@@ -80,7 +80,7 @@ fi
 # 6.- neovim & nvchad
 info "Installing NeoVim..."
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-  sudo apt install -q neovim
+  sudo apt install -q -y neovim
   git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
   success "NeoVim Installed"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
