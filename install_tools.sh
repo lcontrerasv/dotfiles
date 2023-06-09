@@ -11,6 +11,24 @@
 # - neovim with nvchad
 #
 
+msg() {
+  printf "\r$1\n"
+}
+
+info() {
+  msg "  [ \033[00;34m..\033[0m ] $1"
+}
+
+success() {
+  msg "\033[2K  [ \033[00;32mOK\033[0m ] $1"
+}
+
+fail() {
+  msg "\033[2K  [\033[0;31mFAIL\033[0m] $1"
+  echo ''
+  exit 1
+}
+
 # 0.- Check ZSH
 if zsh --version > /dev/null; then
   success "ZSH found! setting as default shell"
@@ -73,21 +91,3 @@ else
 fi
 
 success "Finish!"
-
-msg() {
-  printf "\r$1\n"
-}
-
-info() {
-  msg "  [ \033[00;34m..\033[0m ] $1"
-}
-
-success() {
-  msg "\033[2K  [ \033[00;32mOK\033[0m ] $1"
-}
-
-fail() {
-  msg "\033[2K  [\033[0;31mFAIL\033[0m] $1"
-  echo ''
-  exit 1
-}
