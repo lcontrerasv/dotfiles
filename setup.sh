@@ -3,7 +3,7 @@
 
 AUTHOR="lcontreras"
 URL="https://github.com/lcontrerasv/dotfiles"
-VERSION="1.3"
+VERSION="1.4"
 
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
@@ -47,13 +47,6 @@ check_deps(){
 
   info "checking dependencies"
 
-  #check if oh-my-zsh is installed
-  if [ -d ~/.oh-my-zsh ]; then
-    success "Oh My ZSH! installed"
-  else
-    fail "Oh My ZSH! not found"
-  fi
-
   for dep in "${DEPS[@]}"
   do
      info  "checking $dep ..."
@@ -85,13 +78,6 @@ copy_dots_files(){
       mv ~/${dot} ~/${dot}`date +%Y_%m_%d_%H:%M:%S`.bkp
     fi
 
-    # verify if $dot already exists as directory
-    if [ -d ~/${dot} ]; then
-      #create backup
-      #pending of implementation
-      ls > /dev/null
-    fi
-
     # create symbolic link
     info "Installing $dot"
     ln -s ${BASEDIR}/${dot} ~/${dot}
@@ -111,7 +97,7 @@ install_dots(){
   info "Installing dotfiles"
   check_deps ${DEPS}
   copy_dots_files
-  custom_oh_my_zsh
+  custom_config_files
 }
 
 # Update dotfiles
@@ -121,13 +107,18 @@ update_dots(){
   cd ${BASEDIR} && git pull --all
   #copy only new files
   copy_dots_files
-  custom_oh_my_zsh
+  custom_config_files
 }
 
-# Custom Oh My ZSH themes and plugins
-custom_oh_my_zsh(){
-  #Install themes
-  cp -rf ${BASEDIR}/themes/oh-my-zsh/* ~/.oh-my-zsh/custom/themes/
+# Custom config files
+custom_config_files(){
+  
+  rm -f ~/.config/shell > /dev/null 2>&1
+  rm -f ~/.config/shell > /dev/null 2>&1
+
+  # install shell files
+  ln -s ${BASEDIR}/shell ~/.config/shell
+  ln -s ${BASEDIR}/zsh ~/.config/zsh
 }
 
 # Version of this script

@@ -1,16 +1,12 @@
-# lcontrerasv dotfiles
+# My dotfiles
 
 ## Requirements
 
 First, set zsh as your login shell:
-
+```sh
     chsh -s $(which zsh)
-
-Then, install Oh my ZSH!:
-
-    https://ohmyz.sh/#install
-
-And finally, you need to install the next tools:
+```
+Then, you need to install the next tools:
 
     kitty       (Terminal)          - https://sw.kovidgoyal.net/kitty/
     bat         (Better cat)        - https://github.com/sharkdp/bat
@@ -24,15 +20,19 @@ And finally, you need to install the next tools:
 ## Install
 
 1.- Clone on your computer:
-
+```sh
     git clone --recurse-submodules https://github.com/lcontrerasv/dotfiles.git
+```
 
 2.- Run the setup:
-
-    .../dotfiles/setup.sh -i
-
+```sh
+    cd dotfiles
+    ./setup.sh -i
+```
 ## Update
 
 1.- Run the setup for update:
-
-    .../dotfiles/setup.sh -u
+```sh
+    cd dotfiles
+    ./setup.sh -u
+```

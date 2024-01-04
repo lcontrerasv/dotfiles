@@ -8,57 +8,28 @@ fi
 # Path configuration
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
 
-# Custom setting
-[[ ! -f ~/.custom.sh ]] || source ~/.custom.sh
+# Custom shell setting
+[[ ! -f ~/.config/custom_shell.sh ]] || source ~/.config/custom_shell.sh
 
 # External plugins (initialized before)
-source ~/.zsh/plugins_before.zsh
-
-# oh-My-ZSH config
-export ZSH=~/.oh-my-zsh
-
-ZSH_THEME="powerlevel10k/powerlevel10k"
-
-# Internal oh-My-ZSH Plugins
-plugins=(
-   brew
-   dotenv
-   extract
-   fzf
-   git
-   github
-   httpie
-   history
-   iterm2
-   jira
-   last-working-dir
-   node
-   npm
-   macos
-   sudo
-   web-search
-   z
-)
-
-source $ZSH/oh-my-zsh.sh
+source ~/.config/zsh/plugins_before.zsh
 
 # Settings
-source ~/.zsh/settings.zsh
-
-# Aliases
-source ~/.shell/aliases.sh
-
-# Custom Aliases
-[[ ! -f ~/.custom_alias.sh ]] || source ~/.custom_alias.sh
+source ~/.config/zsh/settings.zsh
 
 # External plugins (initialized after)
-source ~/.zsh/plugins_after.zsh
+source ~/.config/zsh/plugins_after.zsh
+
+# Aliases
+source ~/.config/shell/aliases.sh
+
+# Custom Aliases
+[[ ! -f ~/.config/shell/custom_alias.sh ]] || source ~/.config/shell/custom_alias.sh
+
+source ~/.config/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
+# enable fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

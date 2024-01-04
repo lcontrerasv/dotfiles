@@ -1,2 +1,2 @@
 # reference to shell aliases
-source ~/.shell/aliases.sh
+source ~/.config/shell/aliases.sh

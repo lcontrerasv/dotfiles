@@ -1,15 +1,12 @@
-[submodule ".zsh/plugins/zsh-autosuggestions"]
-	path = .zsh/plugins/zsh-autosuggestions
+[submodule "zsh/plugins/zsh-autosuggestions"]
+	path = zsh/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions
-[submodule ".zsh/plugins/zsh-syntax-highlighting"]
-	path = .zsh/plugins/zsh-syntax-highlighting
-	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
-[submodule ".shell/dircolors-solarized"]
-	path = .shell/dircolors-solarized
-	url = https://github.com/seebi/dircolors-solarized.git
-[submodule "themes/oh-my-zsh/powerlevel10k"]
-	path = themes/oh-my-zsh/powerlevel10k
+[submodule "zsh/plugins/zsh-syntax-highlighting"]
+	path = zsh/plugins/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting
+[submodule "zsh/plugins/zsh-completions"]
+	path = zsh/plugins/zsh-completions
+	url = https://github.com/zsh-users/zsh-completions
+[submodule "zsh/themes/powerlevel10k"]
+	path = zsh/themes/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k.git
-[submodule ".zsh/plugins/zsh-completions"]
-	path = .zsh/plugins/zsh-completions
-	url = https://github.com/zsh-users/zsh-completions.git
