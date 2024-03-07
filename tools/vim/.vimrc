@@ -1,8 +1,8 @@
 "=========================================================================================
 "
-" Mantainer:  lcontrerasv
+" Mantainer:  lcontreras
 "
-" Updated:    07/06/2023
+" Updated:    07/03/2024
 "
 " Sections:
 "   -> General
@@ -274,3 +274,7 @@ call plug#end()
 map <leader>N :NERDTreeToggle<cr>
 map <leader>F :NERDTreeFind<cr>
 
+"=========================================================================================
+" => FZF Mac M1
+"=========================================================================================
+set rtp+=/opt/homebrew/opt/fzf
