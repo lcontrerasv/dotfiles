@@ -8,6 +8,8 @@ fi
 # Path configuration
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
 
+eval "$(/opt/homebrew/bin/brew shellenv)" > /dev/null 2>&1
+
 # Custom shell setting
 [[ ! -f ~/.config/custom_shell.sh ]] || source ~/.config/custom_shell.sh
 
