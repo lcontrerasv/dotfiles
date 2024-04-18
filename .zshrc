@@ -7,11 +7,13 @@ fi
 
 # Path configuration
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
-eval "$(/opt/homebrew/bin/brew shellenv)" > /dev/null 2>&1
+
+[[ -f /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)" > /dev/null 2>&1
 
 # Custom shell setting
-[[ ! -f ~/.config/custom_shell.sh ]] || source ~/.config/custom_shell.sh
+[[ -f ~/.config/custom_shell.sh ]] && source ~/.config/custom_shell.sh
 
 # External plugins (initialized before)
 source ~/.config/zsh/plugins_before.zsh
@@ -26,7 +28,7 @@ source ~/.config/zsh/plugins_after.zsh
 source ~/.config/shell/aliases.sh
 
 # Custom Aliases
-[[ ! -f ~/.config/shell/custom_alias.sh ]] || source ~/.config/shell/custom_alias.sh
+[[ -f ~/.config/shell/custom_alias.sh ]] && source ~/.config/shell/custom_alias.sh
 
 source ~/.config/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme
 

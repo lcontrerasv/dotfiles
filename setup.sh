@@ -114,7 +114,7 @@ update_dots(){
 custom_config_files(){
   
   rm -f ~/.config/shell > /dev/null 2>&1
-  rm -f ~/.config/shell > /dev/null 2>&1
+  rm -f ~/.config/zsh > /dev/null 2>&1
 
   # install shell files
   ln -s ${BASEDIR}/shell ~/.config/shell
