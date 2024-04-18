@@ -39,7 +39,14 @@ source ~/.config/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export NVM_DIR="$HOME/.nvm"
-  [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+ 
+#For Intel
+NVM_HOME="/usr/local/opt/nvm"
+
+if [[ -d "/opt/homebrew/opt/nvm" ]]; then
+  #For Apple
+  NVM_HOME="/opt/homebrew/opt/nvm"
+fi
+
+[[ -f "$NVM_HOME/nvm.sh" ]] && \. "$NVM_HOME/nvm.sh"  # This loads nvm
+[[ -f "$NVM_HOME/etc/bash_completion.d/nvm" ]] && \. "$NVM_HOME/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
