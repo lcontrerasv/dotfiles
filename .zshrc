@@ -7,8 +7,6 @@ fi
 
 # Path configuration
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-
 
 [[ -f /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)" > /dev/null 2>&1
 
