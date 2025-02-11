@@ -35,6 +35,7 @@ bindkey '^[[Z' undo                               # shift + tab undo last action
 
 # Use modern completion system
 if [[ "$(uname -s)" == "Darwin" ]]; then
+  autoload bashcompinit && bashcompinit
   autoload -Uz compinit && compinit -i
 else
   autoload -Uz compinit
@@ -62,6 +63,9 @@ zstyle ':completion:*' verbose true
 
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+
+# AWS Completion
+complete -C 'aws_completer' aws
 
 # History configurations
 HISTFILE=~/.zsh_history
