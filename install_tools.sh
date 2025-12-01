@@ -3,12 +3,13 @@
 #
 # This script is make for automate the installation of:
 #
-# - Oh my ZSH!
-# - kitty
-# - bat
-# - fzf
-# - lsd
-# - neovim with nvchad
+# 1 - Oh my ZSH!
+# 2 - kitty
+# 3 - bat
+# 4 - fzf
+# 5 - lsd
+# 6 - neovim with nvchad
+# 7 - atuin
 #
 
 msg() {
@@ -89,6 +90,16 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   success "NeoVim Installed"
 else
   info "OS not detected! NeoVim is not installed!"
+fi
+
+# 7 - atuin
+info "Intalling Atuin..."
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  sudo apt install -q -y atuin
+  success "Atuin Installed"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  brew install -q atuin
+  success "Atuin Installed"
 fi
 
 success "Finish!"
