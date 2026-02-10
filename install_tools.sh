@@ -3,6 +3,7 @@
 #
 # This script is make for automate the installation of:
 #
+# 0 - Brew (for macOS)
 # 1 - Oh my ZSH!
 # 2 - kitty
 # 3 - bat
@@ -10,7 +11,9 @@
 # 5 - lsd
 # 6 - neovim with nvchad
 # 7 - atuin
-#
+# 8 - flameshot
+# 9 - raycast
+# 10 - the unarchiver
 
 msg() {
   printf "\r$1\n"
@@ -30,12 +33,23 @@ fail() {
   exit 1
 }
 
-# 0.- Check ZSH
+# Check ZSH
 if zsh --version > /dev/null; then
   success "ZSH found! setting as default shell"
   chsh -s $(which zsh)
 else
   fail "ZSH NOT found!"
+  exit 1
+fi
+
+# 0.- Install Brew
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  info "Installing Brew..."
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  success "Brew Installed"
+else
+  info "OS not detected! Brew is not installed!"
+  exit 1
 fi
 
 # 1.- Install Oh my ZSH
@@ -100,6 +114,38 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   brew install -q atuin
   success "Atuin Installed"
+else
+  info "OS not detected! Atuin is not installed!"
+fi
+
+# 8 - flameshot
+info "Installing Flameshot..."
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  sudo apt install -q -y flameshot
+  success "Flameshot Installed"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  brew install -q flameshot
+  success "Flameshot Installed"
+else
+  info "OS not detected! Flameshot is not installed!"
+fi
+
+# 9 - raycast
+info "Installing Raycast..."
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  brew install --cask -q raycast
+  success "Raycast Installed"
+else
+  info "OS not detected! Raycast is not installed!"
+fi
+
+# 10 - the unarchiver
+info "Installing The Unarchiver..."
+if [[ "$OSTYPE" == "darwin"* ]]; then 
+  brew install --cask -q the-unarchiver
+  success "The Unarchiver Installed"
+else
+  info "OS not detected! The Unarchiver is not installed!"
 fi
 
 success "Finish!"

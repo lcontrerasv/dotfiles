@@ -46,5 +46,9 @@ if [[ -d "/opt/homebrew/opt/nvm" ]]; then
   NVM_HOME="/opt/homebrew/opt/nvm"
 fi
 
-[[ -f "$NVM_HOME/nvm.sh" ]] && \. "$NVM_HOME/nvm.sh"  # This loads nvm
-[[ -f "$NVM_HOME/etc/bash_completion.d/nvm" ]] && \. "$NVM_HOME/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+if [[ -f "$NVM_HOME/nvm.sh" ]]; then
+  \. "$NVM_HOME/nvm.sh"  # This loads nvm
+fi
+if [[ -f "$NVM_HOME/etc/bash_completion.d/nvm" ]]; then
+  \. "$NVM_HOME/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+fi
