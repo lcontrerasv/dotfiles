@@ -3,3 +3,4 @@
 # zsh-completions
 fpath=(~/.config/zsh/plugins/zsh-completions/src $fpath)
 fpath=(~/.config/zsh/plugins/completions-custom-files $fpath)
+eval "$(atuin init zsh)"

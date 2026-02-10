@@ -11,6 +11,7 @@ DEPS=(git
   curl 
   yarn
   node
+  atuin
 )
 
 check_prg() {
