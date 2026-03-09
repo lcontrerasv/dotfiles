@@ -3,8 +3,7 @@
 #
 # This script is make for automate the installation of:
 #
-# 0 - Brew (for macOS)
-# 1 - Oh my ZSH!
+# 1 - Brew (for macOS)
 # 2 - kitty
 # 3 - bat
 # 4 - fzf
@@ -42,7 +41,7 @@ else
   exit 1
 fi
 
-# 0.- Install Brew
+# 1.- Install Brew
 if [[ "$OSTYPE" == "darwin"* ]]; then
   info "Installing Brew..."
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -51,11 +50,6 @@ else
   info "OS not detected! Brew is not installed!"
   exit 1
 fi
-
-# 1.- Install Oh my ZSH
-info "Installing Oh my ZSH!..."
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-success "Oh my ZSH Installed"
 
 # 2.- kitty
 info "Installing Kitty..."
